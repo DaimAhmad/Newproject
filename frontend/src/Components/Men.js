@@ -63,7 +63,7 @@ function Men() {
           <div key={rowIndex} style={{ display: 'flex', gap: '4rem', justifyContent: 'center' }}>
             {row.map((product, index) => (
               <Card key={index} className="mb-3" style={{ width: '18rem', marginTop: '5rem', textAlign: 'center' }}>
-                <img src={`https://mydata-vfj2.onrender.com${product.pic}`} 
+                <img src={`https://mydata-vfj2.onrender.com/${product.pic}`} 
                 style={{ height: '100%' }} alt={`Product ${index + 1}`} />
                 <Card.Body>
                   <Card.Title>{product.name}</Card.Title>
