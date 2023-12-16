@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = "http://localhost:4999";
+const url = "https://mydata-vfj2.onrender.com";
 
 export const adddetails = async (formdata) => {
    return await axios.post(`${url}/Form/Addform`,formdata);

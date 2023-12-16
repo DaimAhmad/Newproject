@@ -50,7 +50,7 @@ function Women() {
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', justifyContent: 'center',marginTop:"30px" }}>
         {womenData.map((product, index) => (
           <Card key={index} className="mb-3" style={{ width: '22%', textAlign: 'center' }}>
-            <img src={product.pic} alt={product.name} style={{ height: '100%' }} />
+            <img src={`https://mydata-vfj2.onrender.com${product.pic}`} alt={product.name} style={{ height: '100%' }} />
             <Card.Body>
               <Card.Title>{product.name}</Card.Title>
               <Card.Text>
