@@ -1,0 +1,748 @@
+namespace EventHandling2
+{
+    public class Demo
+    {
+        //Declare the delegate
+         public delegate void MyDelegate();
+
+        //Declare the Event
+         public event MyDelegate MySampleEvent;
+
+        //Create a Method which raises the Event
+        public void RaiseMyEvent()
+        {
+            //Raise the Event
+            MySampleEvent?.Invoke();
+        }
+    }
+
+    public class Test
+    {
+        
+	public void onMyEventRaised1()
+        {
+            //do some work event get raised
+            Console.WriteLine("onMyEventRaise1");
+        }
+    }
+
+   public class Test2
+    {
+
+	public void onMyEventRaised2()
+        {
+            //do some work event get raised
+            Console.WriteLine("onMyEventRaise2");
+        }
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Demo obj = new Demo();
+            Test objTest = new Test();
+            Test2 objTest2 = new Test2();
+
+            //subscribe for the event
+            obj.MySampleEvent += objTest.onMyEventRaised1;
+            obj.MySampleEvent += objTest2.onMyEventRaised2;
+            //Calling Event Handler Method
+            obj.RaiseMyEvent();
+
+
+        }
+    }
+}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <!-- Showing Alert Message On Page load For feed Back-->
+
+    <script type="text/javascript">
+        function alertUser(msg) {
+            alert(msg);
+        }
+    </script>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <title>Student Console</title>
+    <!--                       CSS                       -->
+    <!-- Reset Stylesheet -->
+    <link rel="stylesheet" href='/BOT_Theme/resources/css/reset.css'
+        type="text/css" media="screen" />
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href='/BOT_Theme/resources/css/style.css'
+        type="text/css" media="screen" />
+    <!--[if lte IE 7]>
+			<link rel="stylesheet" href="BOT_Theme/resources/css/style-ie.css" type="text/css" media="screen" />
+		<![endif]-->
+    <!-- Invalid Stylesheet. This makes stuff look pretty. Remove it if you want the CSS completely valid -->
+    <link rel="stylesheet" href='/BOT_Theme/resources/css/invalid.css'
+        type="text/css" media="screen" />
+    <!-- Colour Schemes
+	  
+		Default colour scheme is green. Uncomment prefered stylesheet to use it.-->
+    <link rel="stylesheet" href='/BOT_Theme/resources/css/blue.css'
+        type="text/css" media="screen" />
+    <link rel="stylesheet" href='/BOT_Theme/resources/css/default.css'
+        type="text/css" media="screen" />
+    <link rel="stylesheet" href='/BOT_Theme/resources/css/debug.css'
+        type="text/css" media="screen" />
+    <link rel="stylesheet" href='/BOT_Theme/resources/css/spread.css'
+        type="text/css" media="screen" />
+    <!--<link rel="stylesheet" href="~/resources/css/red.css" type="text/css" media="screen" />  
+	 
+		-->
+    <!-- Internet Explorer Fixes Stylesheet -->
+    <!--[if lte IE 7]>
+			<link rel="stylesheet" href="~/BOT_Theme/resources/css/spread.css" type="text/css" media="screen" />
+		<![endif]-->
+    <!--                       Javascripts                       -->
+    <!-- jQuery -->
+
+    <script type="text/javascript" src="~/BOT_Theme/resources/scripts/prototype.js"></script>
+
+    <script type="text/javascript" src="~/BOT_Theme/resources/scripts/window.js"></script>
+
+    <script type="text/javascript" src="~/BOT_Theme/resources/scripts/window_ext.js"></script>
+
+    <script type="text/javascript" src="~/BOT_Theme/resources/scripts/effects.js"></script>
+
+    <script type="text/javascript" src="~/BOT_Theme/resources/scripts/debug.js"></script>
+
+    <script type="text/javascript" src="~/BOT_Theme/resources/scripts/extended_debug.js"></script>
+
+    <script type="text/javascript" src='/BOT_Theme/resources/scripts/jquery-1.3.2.min.js'></script>
+
+    <!-- jQuery Configuration -->
+
+    <script type="text/javascript" src='/BOT_Theme/resources/scripts/simpla.jquery.configuration.js'></script>
+
+    <!-- Facebox jQuery Plugin -->
+
+    <script type="text/javascript" src='/BOT_Theme/resources/scripts/facebox.js'></script>
+
+    <!-- jQuery WYSIWYG Plugin -->
+
+    <script type="text/javascript" src='/BOT_Theme/resources/scripts/jquery.wysiwyg.js'></script>
+
+    
+    <!-- Internet Explorer .png-fix -->
+    <!--[if IE 6]>
+			<script type="text/javascript" src="~/resources/scripts/DD_belatedPNG_0.0.7a.js"></script>
+			<script type="text/javascript">
+				DD_belatedPNG.fix('.png_bg, img, li');
+			</script>
+		<![endif]-->
+
+    <script type="text/javascript" language="javascript">
+        function ShowResultCard() {
+            var win = new Window({ className: "spread", title: "Ruby on Rails", top: 70, left: 100, width: 300, height: 200, url: "http://www.rubyonrails.org/", showEffectOptions: { duration: 1.5 } }); win.show();
+        }
+
+    </script>
+
+    <script type="text/javascript" language="javascript">
+        function CloseNotification() {
+            var main = document.getElementById("ctl00_main"); main.style.opacity = 1;
+        } </script>
+
+    <style type="text/css">
+        #progressBackgroundFilter {
+            position: fixed;
+            top: 0px;
+            bottom: 0px;
+            left: 0px;
+            right: 0px;
+            overflow: hidden;
+            padding: 0;
+            margin: 0;
+            background-color: #000;
+            filter: alpha(opacity=50);
+            opacity: 0.5;
+            z-index: 1000;
+            height: 100%;
+        }
+
+        #processMessage {
+            position: fixed;
+            top: 200px;
+            left: 43%;
+            padding: 10px;
+            width: 14%;
+            z-index: 1001;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .ddlClass {
+            font-size: 18px;
+            height: 30px;
+            line-height: 30px;
+            width: 100px; /*
+scrollbar-face-color: #FFCCCC;
+scrollbar-highlight-color: #4B4B4B;
+scrollbar-3dlight-color: #646464;
+scrollbar-darkshadow-color: #969696;
+scrollbar-shadow-color: #C0C0C0;
+scrollbar-arrow-color: #090925;
+scrollbar-track-color: #051011;*/
+        }
+
+        .pgr {
+            background: #424242 url(grd_pgr.png) repeat-x top;
+        }
+
+            .pgr table {
+                margin: 5px 0;
+            }
+
+            .pgr td {
+                border-width: 0;
+                padding: 0 6px;
+                border-left: solid 1px #666;
+                font-weight: bold;
+                color: #fff;
+                line-height: 12px;
+            }
+
+            .pgr a {
+                color: #666;
+                text-decoration: none;
+            }
+
+                .pgr a:hover {
+                    color: #000;
+                    text-decoration: none;
+                }
+        /*by adil Start*/ .Initial {
+            display: block;
+            padding: 2px 10px 4px 12px;
+            float: left;
+            background: url("../images/InitialImage.png") no-repeat right top;
+            color: Black;
+            font-weight: bold;
+        }
+
+            .Initial:hover {
+                color: White;
+                background: url("../images/SelectedButton.png") no-repeat right top;
+            }
+
+        .Clicked {
+            float: left;
+            display: block;
+            background: url("../images/SelectedButton.png") no-repeat right top;
+            padding: 2px 10px 4px 12px;
+            color: Black;
+            font-weight: bold;
+            color: White;
+        }
+        /*by adil End*/
+    </style>
+</head>
+<body>
+    <form name="aspnetForm" method="post" action="DownloadFile.aspx?ocid=47957&amp;fileID=473691&amp;fileType=q" id="aspnetForm">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTY1NDU2MTA1Mg9kFgJmD2QWAmYPZBYEAgEPZBYCAgMPZBYCAgEPPCsADQBkAgsPZBYcAgcPDxYCHgRUZXh0BQpEYWltIEFobWFkZGQCEQ8PZBYCHgVTdHlsZQUNZGlzcGxheTpub25lO2QCKQ8WAh4Fc3R5bGUFDWRpc3BsYXk6bm9uZTtkAisPFgIfAgUNZGlzcGxheTpub25lO2QCLQ8WAh8CBQ1kaXNwbGF5Om5vbmU7ZAIvDxYCHwIFDWRpc3BsYXk6bm9uZTtkAkcPZBYEZg8WAh8CBQxkaXNwbGF5Om5vbmVkAgYPFgIfAgUMZGlzcGxheTpub25lZAJ5DxYCHgdWaXNpYmxlaGQCfQ8WAh8CBQxEaXNwbGF5Om5vbmUWCGYPFgIfAgUMRGlzcGxheTpub25lZAICDw9kFgIfAgUMRGlzcGxheTpub25lZAIEDw9kFgIfAgUMRGlzcGxheTpub25lZAIGDw9kFgIfAgUMRGlzcGxheTpub25lZAJ/D2QWBAICDw9kFgIfAgUNZGlzcGxheTpub25lO2QCBA8PZBYCHwIFDWRpc3BsYXk6bm9uZTtkAoEBD2QWBGYPFgIfAgUNZGlzcGxheTpub25lO2QCAg8PZBYCHwIFDWRpc3BsYXk6bm9uZTtkAoUBDxYCHwNoFgICAQ8PFgIeC1Bvc3RCYWNrVXJsBQEjFgIfAgUMRGlzcGxheTpub25lZAKRAQ9kFhYCAQ8WAh4Dc3JjBQ9Ob0ltYWdlTWFsZS5qcGdkAgMPDxYCHwAFCkRhaW0gQWhtYWRkZAIFDw8WAh8ABRVDSUlUL0ZBMjEtQkNTLTA3Mi9BVERkZAIHDw8WAh8ABQ1NYXFzb29kIEFobWFkZGQCCQ8PFgIfAAUBNmRkAg0PDxYCHwAFAjI5ZGQCEQ8PFgIfAAUDQkNTZGQCEw8PFgIfAAUCQiBkZAIVDw8WAh8ABQ1FaHpheiBNdXN0YWZhZGQCFw8PFgIfAAUMTWF5IDAxLCAyMDA0ZGQCGQ8PFgIfAAUPMTQzMDEtNjc3ODc0Ni05ZGQClwEPDxYCHwAFCUFib3R0YWJhZGRkGAEFGGN0bDAwJGd2TWlzc2luZ0RvY3VtZW50cw9nZFWGqkQbrNoCA/yQo209Px3UFYMi" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=kd6hY6V9gpJ-2Up1AbQrg5JuX66f86JcmnTsdlpqBYbq5RCrjH-2uRETyVsU72i0EHlADn3x-uaOmamiGRUzIK30cHU1&amp;t=637291115760000000" type="text/javascript"></script>
+
+
+<script src="/ScriptResource.axd?d=03G0pNWJPHL6DWVd7M9NwABs5OGaeIEZiKjhqb-47gKw1AGVLQc_P19EyZjuKh82jsQVGH3tjJijj3tVn_WtRXLH9Pq-AdqiEXLPk6XdaF86imzP_YvefAdzkprlw7LZeqHarTon1QSTUM_qzATN6yPB8ic1&amp;t=3554ad18" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=f_NN64aGGRrwElJIoEbmd6_CnCpk7txZdrkmcvPWxMN7bNncMuDDGhRZrGVeprh_rjyo3TCAQfaUByBtBKxUwcTVcS0n8hNecTdqjNZfQRtT418ArjFq3JWDKiUH3jwK4_ZWoR1LpmS8HmND-ACPqXFUsVGuToWosJUDN8ImgNy-v7_R0&amp;t=3554ad18" type="text/javascript"></script>
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="6A2B5FB0" />
+	<input type="hidden" name="__PREVIOUSPAGE" id="__PREVIOUSPAGE" value="IEDtlRxXg1h9EULoII4jZrX9Pl23PLJXbEW7tKGQH6SOCcq94LMcSQJQEd6o4BJJ01bPg6P5BV4W-tWdtU8e7HJHN7c1" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWGgKbv/75CgKuzNzyAQKIq62dBwLtnd/oBgLrjPKUAQL52+m3CwKnq9a6BgK42/GbDAK6iJ29AwLNsu1dAti9uPABAu29kPYBAobNoZkMAtWko5cDApnA/poLAu3Rpe8LAvXMk6UOAqmzif8JAoOP3IgOAo74nLsKAtWDzs8IAvb3icYOAu/X56IDArKPsbsOAuC8+dIIAt70nrALBNygksBPAysIoEaEaUUkUcU22Cw=" />
+</div>
+        
+        
+        
+        
+        
+        <div id="ctl00_main">
+            <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$Manager', document.getElementById('aspnetForm'));
+Sys.WebForms.PageRequestManager.getInstance()._updateControls([], [], [], 90);
+//]]>
+</script>
+
+            
+            <div id="body-wrapper">
+                <!-- Wrapper for the radial gradient background -->
+                <div id="sidebar">
+                    <div id="sidebar-wrapper">
+                        <!-- Sidebar with logo and menu -->
+                        <h1 id="sidebar-title">
+                            <a href="#">Student COnsole</a></h1>
+                        <!-- Logo (221px wide) -->
+                        <center>
+                        <a href="#">
+                            <img id="ctl00_logo" src="resources/images/CIITLogo_Plain.png" alt="COMSATS" style="border-width:0px;" />
+                            </a>
+                    </center>
+                        <!-- Sidebar Profile links -->
+                        <div id="profile-links" style="text-align: center;">
+                            <span id="ctl00_Label1" style="font-size:10pt;">Welcome,</span>
+                            <a href="#" title="Edit your profile">
+                                <span id="ctl00_lbl_StudentName" style="font-size:10pt;">Daim Ahmad</span></a><br />
+                            <br />
+                            <a id="ctl00_lnk_Notifications" title="Notifications" href="javascript:__doPostBack('ctl00$lnk_Notifications','')" style="font-size: 10pt">Notifications</a>
+                            |
+                        <a id="ctl00_lnk_Signout" href="javascript:__doPostBack('ctl00$lnk_Signout','')" style="font-size: 10pt">Sign 
+                        Out</a>
+                            <br />
+                            
+                            <a href="StudentConsoleManual.zip" style="font-size: 9pt; color: Yellow">User Manual</a>
+                            |
+                            |
+                            |
+                        </div>
+                        <ul id="main-nav">
+                            <!-- Accordion Menu -->
+                            <li>
+                                <a id="ctl00_lnk_Dashboard" class="nav-top-item no-submenu" href="javascript:__doPostBack('ctl00$lnk_Dashboard','')">Dashboard</a>
+                            </li>
+                            <li id="ctl00_lst_MSteam"><a id="ctl00_lnkMSteamMain" class="nav-top-item">
+                                <!-- Add the class "current" to current menu item -->
+                                Microsoft Office 365 / Teams </a>
+                                <ul>
+                                    <li>
+                                        <a id="ctl00_lnkMSTeam" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$lnkMSTeam&quot;, &quot;&quot;, false, &quot;&quot;, &quot;StudentsDetails/StudentNotices.aspx&quot;, false, true))"> Account Details</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                             
+
+
+                            <li id="ctl00_lstRegistration">
+                                
+                                
+                                <ul>
+                                    <li>
+                                        
+                                    </li>
+                                    <li>
+                                        </li>
+                                </ul>
+                            </li>
+                            
+                            <li id="ctl00_lstCourses"><a id="ctl00_lnk_Courses" class="nav-top-item">
+                                <!-- Add the class "current" to current menu item -->
+                                Courses </a>
+                                <ul>
+                                    <li>
+                                        <a id="ctl00_lnk_Summary" href="javascript:__doPostBack('ctl00$lnk_Summary','')">Summary</a></li>
+                                    <li>
+                                        <a id="ctl00_lnk_ClassProceedings" href="javascript:__doPostBack('ctl00$lnk_ClassProceedings','')">Class Proceedings</a></li>
+                                    <li>
+                                        <a id="ctl00_lnk_QAMarks" href="javascript:__doPostBack('ctl00$lnk_QAMarks','')">Q.A/Sess/Final 
+                                    Marks</a></li>
+                                    <!-- Add class "current" to sub menu items also -->
+                                </ul>
+                            </li>
+                            <li id="ctl00_lstCoursePortal"><a id="ctl00_lnk_CoursePortal" class="nav-top-item">Course Portal </a>
+                                <ul>
+                                    <li><a href="CTS/CTSdashboard.aspx" id="ctl00_lnkOnlineTest">MCQ Test</a></li>
+                                    <li><a href="CoursePortal.aspx?isTest=1" id="ctl00_lnkSubjectiveTests">Subjective Test</a></li>
+                                    <li><a href="CoursePortalContentsSummary.aspx" id="ctl00_lnkCourseContents">Course Contents</a></li>
+                                    <li><a href="CoursePortal.aspx" id="ctl00_lnkPortalSummary">Assignments Summary</a></li>
+                                    <li><a href="CoursePortalPendingAssignments.aspx" id="ctl00_lnkPendingAssignments">Pending Assignments</a></li>
+                                </ul>
+                            </li>
+
+                            <li><a href="#" id="ctl00_lnkStudentApp" class="nav-top-item">Student Mobile App Activation</a>
+                                <ul>
+                                    <li><a href="GenerateAppPassword.aspx" id="ctl00_lnkStudentAppActivation">Student App Activation</a></li>
+                                </ul>
+                            </li>
+
+                          <!--  <li Visible="false"><a href="#" id="ctl00_lnkHybridDateSheet" class="nav-top-item">Hybrid Date
+                            Sheet</a>
+                                <ul>
+                                    <li><a href="HybridDateSheet.aspx" id="ctl00_lnkHybDatesheet">Hybrid Course
+                                    Date Sheet</a></li>
+                                </ul>
+                            </li> -->
+                            <li><a href="#" id="ctl00_lnkPositionHolders" class="nav-top-item" style="display:none;">Position
+                            Holders Registration</a>
+                                <ul>
+                                    <li><a href="PositionHoldersRegistration.aspx" id="ctl00_lnkPositionHoldersReg" style="display:none;">Position Holders Registration</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#" id="ctl00_lnkFunkadaRegistration" class="nav-top-item" style="display:none;">Funkada
+                            Registration</a>
+                                <ul>
+                                    <li><a href="FunkadaETicking.aspx" id="ctl00_lnkFunkadaRegister" style="display:none;">Funkada Registration</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#" id="ctl00_lnkBoarding" class="nav-top-item">Boarding</a>
+                                <ul>
+                                    <li><a href="RequestBoarding.aspx" id="ctl00_lnkRequestBoarding">Request Boarding</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#" id="ctl00_lnk_Sibling" class="nav-top-item">Sibling Info</a>
+                                <ul>
+                                    <li>
+                                        <a id="ctl00_lnk_SiblingInfo" href="javascript:__doPostBack('ctl00$lnk_SiblingInfo','')">Add Sibling Info</a>
+                                    </li>
+                                    
+                                </ul>
+                            </li>
+                            <li><a href="#" id="ctl00_lnk_Result" class="nav-top-item">Result</a>
+                                <ul>
+                                    <li>
+                                        <a id="ctl00_lnk_ResultCard" href="javascript:__doPostBack('ctl00$lnk_ResultCard','')">Result 
+                                    Card</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a href="#" id="ctl00_lnkOBE" class="nav-top-item">OBE</a>
+                                <ul>
+                                    <li><a href="PLOSummary.aspx" id="ctl00_lnkPLOSummary">Program PLO Details</a></li>
+                                    <li><a href="CurrentSemesterCLO.aspx" id="ctl00_lnkCurrentCLO">Current Semester
+                                    CLO</a></li>
+                                    <li><a href="semesterwiseCLO.aspx" id="ctl00_lnkSemesterwiseCLO">Semester wise
+                                    CLO </a></li>
+                                    <li><a href="PLOAchievement.aspx" id="ctl00_lnkOverAllPLO">PLO Achievement</a></li>
+                                </ul>
+                            </li>
+                            <li id="ctl00_lstProject"><a href="#" id="ctl00_lnkProjectMain" class="nav-top-item" style="display:none">Projects </a>
+                                <ul>
+                                    <li><a href="FinalProject/ApprovedProjects.aspx" id="ctl00_lnkApprovedProjects">Approved Projects</a></li>
+                                    <li><a href="FinalProject/DocumentTemplates.aspx" id="ctl00_lnkTemplates">Document Templates</a></li>
+                                    <li><a href="FinalProject/ProjectComments.aspx" id="ctl00_lnkProjectTasks" style="display:none">Project Tasks</a></li>
+                                </ul>
+                            </li>
+                            <li id="ctl00_lstTimetable"><a href="#" id="ctl00_lnkTimeTableMain" class="nav-top-item">Time Table </a>
+                                <ul>
+                                    <li><a href="TimeTable.aspx" id="ctl00_lnkTimeTable">TimeTable</a></li>
+                                </ul>
+                            </li>
+                            <li visible="false"><a href="#" id="ctl00_lnk_FeeChallan" class="nav-top-item">Fee </a>
+                                <ul>
+                                    <li><a href="FeeChallans.aspx" id="ctl00_lnkFee">Challan</a></li>
+                                    <li><a href="FeeHistorySFMS.aspx" id="ctl00_lnkFeeHistory">History</a></li>
+                                    <li><a href="FeeInstallment.aspx" id="ctl00_lnkFeeInstallment">Fee Installment</a></li>
+                                    <li><a href="StudentInstallmetView.aspx" id="ctl00_lnkFeeInstallmentStatus">Fee Installment Status</a></li>
+                                </ul>
+                            </li>
+                            
+                            <li><a id="ctl00_lnkLibraryMain" class="nav-top-item">Library</a>
+                                <ul>
+                                    <li><a href="BooksReserved.aspx" id="ctl00_lnkReserveBook">Book Reservation</a></li>
+                                    <li><a href="BookBorrowHistory.aspx" id="ctl00_lnkBookBorrowHistory">Book Borrow
+                                    History</a></li>
+                                </ul>
+                            </li>
+                            <li style="display: none"><a id="ctl00_lnkGRASSPMain" class="nav-top-item">GRASSP</a>
+                                <ul>
+                                    <li><a href="GraSPP/GraSPPStudentInfo.aspx" id="ctl00_stuinfo">Student Info</a></li>
+                                    <li><a href="GraSPP/GraSPPBasicInfoBASRTests.aspx" id="ctl00_stuinfo1">BasicInfo
+                                    </a></li>
+                                    <li><a href="GraSPP/ComposeCommittee.aspx" id="ctl00_A2">ComposeCommittee</a></li>
+                                    <li><a href="GraSPP/GraSPP_Print.aspx" id="ctl00_A3">GraSPP_Print </a></li>
+                                    <li><a href="GraSPP/GraSPPStudentInfo.aspx" id="ctl00_A4">Student Info</a></li>
+                                    <li><a href="GraSPP/GraSPPBasicInfoBASRTests.aspx" id="ctl00_A5">BasicInfo
+                                    </a></li>
+                                    <li><a href="GraSPP/GraSPPCompletion.aspx" id="ctl00_A6">GraSPPCompletion</a></li>
+                                    <li><a href="GraSPP/GraSPPComprehensieExam.aspx" id="ctl00_A7">GraSPPComprehensieExam
+                                    </a></li>
+                                    <li><a href="GraSPP/GraSPPRemarks.aspx" id="ctl00_A8">GraSPPRemarks</a></li>
+                                    <li><a href="GraSPP/GraSPPResearchActivityProblemRelevantInfo.aspx" id="ctl00_A9">ResearchActivityProblem </a></li>
+                                    <li><a href="GraSPP/GraSPPShowResultCard.aspx" id="ctl00_A10">GraSPPShowResultCard</a></li>
+                                    <li><a href="GraSPP/GraSPPSubmitForm.aspx" id="ctl00_A11">GraSPPSubmitForm
+                                    </a></li>
+                                    <li><a href="GraSPP/GraSPPSynopsisSeminars.aspx" id="ctl00_A12">GraSPPSynopsisSeminars</a></li>
+                                    <li><a href="GraSPP/GraSPPThesisMeeting.aspx" id="ctl00_A13">GraSPPThesisMeeting
+                                    </a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <ul>
+                                    <li>
+                                        <a id="ctl00_lnk_FeedbackSummary" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$lnk_FeedbackSummary&quot;, &quot;&quot;, false, &quot;&quot;, &quot;StudentFeedBackSummary.aspx&quot;, false, true))">Summary</a></li>
+                                </ul>
+                            </li>
+                            <li id="ctl00_lstConvocation" style="Display:none"><a href="#" id="ctl00_lnkConvocationRegistration" class="nav-top-item" style="Display:none">Convocation Registration </a>
+                                <ul>
+                                    <li>
+                                        <a id="ctl00_lnkRegister" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$lnkRegister&quot;, &quot;&quot;, false, &quot;&quot;, &quot;ConvocationRegistration.aspx&quot;, false, true))" style="Display:none">Register</a></li>
+                                    <li>
+                                        <a id="ctl00_lnkConvPrint" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$lnkConvPrint&quot;, &quot;&quot;, false, &quot;&quot;, &quot;ConvocationPrint.aspx&quot;, false, true))" style="Display:none">Print Convocation Letter</a></li>
+                                    <li>
+                                        <a id="ctl00_lnkConvPicture" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$lnkConvPicture&quot;, &quot;&quot;, false, &quot;&quot;, &quot;ConvocationPicture.aspx&quot;, false, true))" style="Display:none">Convocation Picture</a></li>
+                                </ul>
+                            </li>
+                            <li id="ctl00_lstScholarShip"><a href="#" id="ctl00_lnkScholarships" class="nav-top-item">Scholarship</a>
+                                <ul>
+                                    <li>
+                                        <a id="ctl00_LinkRegform" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$LinkRegform&quot;, &quot;&quot;, false, &quot;&quot;, &quot;scholarship/ViewScholarshipFormLinks.aspx&quot;, false, true))" style="display:none;">Apply</a></li>
+                                    <li>
+                                        <a id="ctl00_LinkScholarshipform" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$LinkScholarshipform&quot;, &quot;&quot;, false, &quot;&quot;, &quot;scholarship/ScholarshipFormLinksForView.aspx&quot;, false, true))" style="display:none;">View Form</a></li>
+                                    <li>
+                                        <a id="ctl00_LinkViewScholarshipStatus" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$LinkViewScholarshipStatus&quot;, &quot;&quot;, false, &quot;&quot;, &quot;scholarship/ViewScholarshipStatuse.aspx&quot;, false, true))">View Scholarship Status</a></li>
+                                </ul>
+                            </li>
+
+                            <script type="text/javascript">
+                                function openWin() {
+                                    window.open("SurveyFeedback/FeedbackAnswersByStudent.aspx")
+                                }
+                            </script>
+
+                            <li id="ctl00_lstSurveyFeedback"><a href="#" id="ctl00_lnkSurveyFeedback" class="nav-top-item" style="display:none;">Survey Feedback</a>
+                                <ul>
+                                    <li>
+                                        <a onclick="openWin();" id="ctl00_LinkSurveyFeedback" href="javascript:__doPostBack('ctl00$LinkSurveyFeedback','')" style="display:none;">Start Survey Feedback</a>
+                                        
+                                    </li>
+                                </ul>
+                            </li>
+                            <li id="ctl00_lstClearanceMain"><a href="#" id="ctl00_lnkClearanceMain" class="nav-top-item">University Clearance</a>
+                                <ul>
+                                    <li>
+                                        <a id="ctl00_lnkApplyForClearance" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$lnkApplyForClearance&quot;, &quot;&quot;, false, &quot;&quot;, &quot;Clearance/AddStudentClearanceDetails.aspx&quot;, false, true))">Apply</a></li>
+                                    <li>
+                                        <a id="ctl00_lnkClearanceStatus" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$lnkClearanceStatus&quot;, &quot;&quot;, false, &quot;&quot;, &quot;Clearance/ViewClearanceByUser.aspx&quot;, false, true))">View Status</a></li>
+                                </ul>
+                            </li>
+                            
+                            <li id="ctl00_lstAPS"><a href="#" id="ctl00_lnkapsmain" class="nav-top-item">Application Processing System</a>
+                                <ul>
+                                    <li>
+                                        <a id="ctl00_lnkapsprocess" href="javascript:__doPostBack('ctl00$lnkapsprocess','')">Apply</a>
+                                    </li>
+                                    <li>
+                                        <a id="ctl00_lnkapsstatus" href="javascript:__doPostBack('ctl00$lnkapsstatus','')">Application Status</a></li>
+                                    <li>
+                                        <a id="ctl00_lnkcheckcoursestatus" href="javascript:__doPostBack('ctl00$lnkcheckcoursestatus','')">Course Application Status</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#" id="ctl00_lnk_Settings" class="nav-top-item">Settings</a>
+                                <ul>
+                                    <li>
+                                        <a id="ctl00_lnk_Profile" href="javascript:__doPostBack('ctl00$lnk_Profile','')">Profile</a>
+                                    </li>
+                                    <li>
+                                        <a id="ctl00_lnk_ChangePassword" href="javascript:__doPostBack('ctl00$lnk_ChangePassword','')">Change 
+                                        Password</a></li>
+                                    <li>
+                                        <a id="ctl00_lnk_LoginHistory" href="javascript:__doPostBack('ctl00$lnk_LoginHistory','')">Login 
+                                        History</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <!-- End #main-nav -->
+                        <div id="messages" style="display: none">
+                            <!-- Messages are shown when a link with these attributes are clicked: href="#messages" rel="modal"  -->
+                            <h3>3 Messages</h3>
+                            <p>
+                                <strong>17th May 2009</strong> by Admin<br />
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in
+                            mi at felis aliquet congue. <small><a href="#" class="remove-link" title="Remove message">Remove</a></small>
+                            </p>
+                            <p>
+                                <strong>2nd May 2009</strong> by Jane Doe<br />
+                                Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at
+                            sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam.
+                            Vivamus pretium ornare est. <small><a href="#" class="remove-link" title="Remove message">Remove</a></small>
+                            </p>
+                            <p>
+                                <strong>25th April 2009</strong> by Admin<br />
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in
+                            mi at felis aliquet congue. <small><a href="#" class="remove-link" title="Remove message">Remove</a></small>
+                            </p>
+                        </div>
+                        <!-- End #messages -->
+                    </div>
+                </div>
+                <!-- End #sidebar -->
+                <div id="main-content">
+                    <!-- Main Content Section with everything -->
+                    <noscript>
+                        <!-- Show a notification if the user has disabled javascript -->
+                        <div class="notification error png_bg">
+                            <div>
+                                Javascript is disabled or is not supported by your browser. Please <a href="" title="Upgrade to a better browser">upgrade</a> your browser or <a href="" title="Enable Javascript in your browser">enable</a>
+                                Javascript to navigate the interface properly.
+                            </div>
+                        </div>
+                    </noscript>
+                    <!-- Page Head -->
+                    <div id="ctl00_divStudentDetails">
+                        <ul class="shortcut-buttons-set">
+                            <li><a class="shortcut-button" href="#">
+                                
+                                
+                                <img src="NoImageMale.jpg" id="ctl00_stImg" alt="icon" style="width: 100px; height: 100px" />
+                            </a></li>
+                            <li style="width: 82%;">
+                                <div class="studentdetails">
+                                    <table cellpadding="0" cellspacing="0" class="Grid">
+                                        <tr>
+                                            <td style="width: 25%;" class="GridColumn">
+                                                <b>Name :</b>
+                                            </td>
+                                            <td style="width: 30%;" class="GridColumn">
+                                                <span id="ctl00_lbl_Name">Daim Ahmad</span>
+                                            </td>
+                                            <td style="width: 20%;" class="GridColumn">
+                                                <b>Roll No :</b>
+                                            </td>
+                                            <td style="width: 25%;">
+                                                <span id="ctl00_lbl_RollNo">CIIT/FA21-BCS-072/ATD</span>
+                                            </td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td class="GridColumn">
+                                                <b>Father Name :</b>
+                                            </td>
+                                            <td class="GridColumn">&nbsp;<span id="ctl00_lbl_FatherName">Maqsood Ahmad</span>
+                                            </td>
+                                            <td>
+                                                <b>Registered Courses :</b>
+                                            </td>
+                                            <td class="GridColumn">
+                                                <span id="ctl00_lbl_RegisteredCourses">6</span>
+                                                
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="GridColumn">
+                                                <b>Total Registered Courses :</b>
+                                                <br />
+                                            </td>
+                                            <td class="GridColumn">
+                                                <span id="ctl00_lbl_TotalRegisteredCourses">29</span>
+                                                <span id="ctl00_lbl_CurrentSelectedCourse"></span>
+                                            </td>
+                                            <td class="GridColumn">
+                                                <b>Program :</b>
+                                                <br />
+                                            </td>
+                                            <td class="GridColumn">
+                                                <span id="ctl00_lbl_ProgramName">BCS</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="GridColumn">
+                                                <b>Current Section :</b>
+                                                <br />
+                                            </td>
+                                            <td class="GridColumn">
+                                                <span id="ctl00_lbl_CurrentSection">B </span>
+                                            </td>
+                                            <td class="GridColumn">
+                                                <b>Current Advisor :</b>
+                                            </td>
+                                            <td class="GridColumn">
+                                                <span id="ctl00_lblStuAdv">Ehzaz Mustafa</span>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="GridColumn">
+                                                <b>Date of Birth :</b>
+                                            </td>
+                                            <td class="GridColumn">
+                                                
+                                                <span id="ctl00_lblDoB">May 01, 2004</span>
+                                            </td>
+
+                                            <td class="GridColumn">
+                                                <b>CNIC :</b>
+                                            </td>
+                                            <td class="GridColumn">
+                                                <span id="ctl00_lblNID">14301-6778746-9</span>
+                                            </td>
+                                        </tr>
+										 <tr>
+                                            <td class="GridColumn" colspan="2">
+                                                 <a id="ctl00_HyperLink1" href="Clearance/MissingDocsAndDisciplinaryCase.aspx" target="_blank">Missing Documents / Disciplinary Case</a></td>
+
+                                            <td class="GridColumn">
+                                                &nbsp;</td>
+                                            <td class="GridColumn">
+                                                &nbsp;</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="clear">
+                    </div>
+                    <div class="content-box" align="center">
+                        <!-- Start Content Box -->
+                        <div class="content-box-header">
+                            
+
+                            <div class="clear">
+                            </div>
+                        </div>
+                        
+
+                        <!-- End .content-box-header -->
+                        
+                        <!-- End .content-box-content -->
+                    </div>
+                    <!-- End .content-box -->
+                    <div class="clear">
+                    </div>
+                    <!-- Start Notifications -->
+                    
+                    
+                    
+                    
+                    <!-- End Notifications -->
+                    <div id="footer">
+                        <small>Copyright © 2009 COMSATS CIIT <span lang="en-us">
+                            <span id="ctl00_LblCampusName" style="font-size:Small;">Abottabad</span></span>
+                            |
+                        
+                            <a href="#">Top</a></small>
+                    </div>
+                    <!-- End #footer -->
+                </div>
+                <!-- End #main-content -->
+            </div>
+            
+        </div>
+    
+
+<script type="text/javascript">
+//<![CDATA[
+Sys.Application.initialize();
+//]]>
+</script>
+</form>
+</body>
+</html>
