@@ -62,13 +62,13 @@ const Dashboard = () => {
           />
         </div>
         <nav className="sidebar-nav">
-          <a href="#" onClick={viewForm} className={view ? 'active' : ''}>
+          <a  onClick={viewForm} className={view ? 'active' : ''}>
             Data Veiw
           </a>
-          <a href="#" onClick={addForm} className={add ? 'active' : ''}>
+          <a onClick={addForm} className={add ? 'active' : ''}>
             Add
           </a>
-          <a href="#" onClick={updateForm} className={update ? 'active' : ''}>
+          <a  onClick={updateForm} className={update ? 'active' : ''}>
             Customer
           </a>
           <a href="/notifications" className="nav-item">
@@ -85,7 +85,7 @@ const Dashboard = () => {
             />
             <div className="profile-name">DAIM AHMAD</div>
             <div className="profile-email">{localStorage.getItem('adminEmail')}</div>
-            <button onClick={handleLogoutAdmin}  style={{marginRight:"15px"}}>Log out</button>
+            <button onClick={handleLogoutAdmin}  style={{marginRight:"100px"}}>Log out</button>
           </div>
         </nav>
       </aside>
