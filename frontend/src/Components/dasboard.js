@@ -85,7 +85,7 @@ const Dashboard = () => {
             />
             <div className="profile-name">DAIM AHMAD</div>
             <div className="profile-email">{localStorage.getItem('adminEmail')}</div>
-            <button onClick={handleLogoutAdmin} >Log out</button>
+            <button onClick={handleLogoutAdmin}  style={{marginRight:"15px"}}>Log out</button>
           </div>
         </nav>
       </aside>
