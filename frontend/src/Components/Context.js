@@ -16,8 +16,16 @@ const AppContext = ({ children }) => {
     setUser(userData);
   };
 
-  const handleLogout = () => {
-    setUser(null);
+  const handleLogout = (user) => {
+    if(user) {
+      setUser(null);
+      localStorage.removeItem('token');
+      localStorage.removeItem('userEmail');
+    } else {
+      localStorage.removeItem('token');
+      localStorage.removeItem('adminEmail');
+    }
+
   };
 
   return (

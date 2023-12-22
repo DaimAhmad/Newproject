@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import { CiSearch } from 'react-icons/ci';
@@ -7,18 +7,26 @@ import Addform from './Form/Addform';
 import Veiwform from './Form/Veiwform';
 import Update from './Form/updateform';
 import profileimage from '../Images/profileimage.jpeg';
-
+import { Context } from './Context';
+import { useNavigate } from 'react-router-dom';
 const Dashboard = () => {
   const [calendarValue, setCalendarValue] = useState(new Date());
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const [add, setAdd] = useState(false);
   const [view, setView] = useState(false);
   const [update, setUpdate] = useState(false);
+  const { handleLogout } = useContext(Context);
+  const navigation = useNavigate();
 
   const handleCalendarChange = (value) => {
     setCalendarValue(value);
   
   };
+
+  const handleLogoutAdmin = () => {
+    handleLogout();
+    navigation('/Login');
+  }
 
   const toggleCalendar = () => {
     setIsCalendarOpen(!isCalendarOpen);
@@ -76,7 +84,8 @@ const Dashboard = () => {
               style={{ width: '60px', height: '60px', borderRadius: '50%', marginRight: '100px', marginTop:"120px" }}
             />
             <div className="profile-name">DAIM AHMAD</div>
-            <div className="profile-email">daimahmad58@gmail.com</div>
+            <div className="profile-email">{localStorage.getItem('adminEmail')}</div>
+            <button onClick={handleLogoutAdmin} >Log out</button>
           </div>
         </nav>
       </aside>

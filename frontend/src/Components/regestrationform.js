@@ -1,18 +1,20 @@
 import '../Assessts/Login.css';
 import React, { useState } from 'react';
-import axios from 'axios'; // Import axios
 import { addLogindata } from '../Services/api';
- 
+import { GoogleLogin } from '@react-oauth/google';
+import { jwtDecode } from 'jwt-decode';
+import { useNavigate } from 'react-router-dom';
 
 function Regestration() {
   const [login, setLogin] = useState({
-    Name: "",
-    Email: "",
-    Password: "",
-    Confirmpass: "",
+    Name: '',
+    Email: '',
+    Password: '',
+    Confirmpass: '',
   });
 
   const { Name, Email, Password, Confirmpass } = login;
+  const navigate = useNavigate(); // Add this line
 
   const handleInputChange = (e) => {
     setLogin({ ...login, [e.target.name]: e.target.value });
@@ -22,17 +24,11 @@ function Regestration() {
     e.preventDefault();
 
     try {
-    //   const loginData = new FormData();
-    //   loginData.append("Name", Name);
-    //   loginData.append("Email", Email);
-    //   loginData.append("Password", Password);
-    //   loginData.append("Confirmpass", Confirmpass);
-      
       console.log(login);
       await addLogindata(login);
-      alert("Data is saved");
+      alert('Data is saved');
     } catch (error) {
-      console.log("Not saved...", error);
+      console.log('Not saved...', error);
     }
   };
 
@@ -58,9 +54,37 @@ function Regestration() {
             <label>Confirm Password</label>
           </div>
 
-          <button onClick={handleSubmit}>
-            Submit
-          </button>
+          <button onClick={handleSubmit}style={{width:"10px"}} >Submit</button>
+          <p>
+          <GoogleLogin
+              onSuccess={async (credentialResponse) => {
+                console.log(credentialResponse);
+                const decoded = jwtDecode(credentialResponse.credential);
+                console.log(decoded);
+                navigate('/home');
+                // Update the login state with Google credentials
+                setLogin({
+                  Name: decoded.name,
+                  Email: decoded.email,
+                });
+                
+
+                // Call addLogindata with the updated login state
+                try {
+                  await addLogindata(login);
+                  alert('Google auth data is saved');
+                } catch (error) {
+                  console.log('Google auth data not saved...', error);
+                }
+
+                navigate('/home');
+              }}
+              
+              onError={() => {
+                console.log('Login Failed');
+              }}
+            />  
+          </p>
         </form>
       </div>
     </div>

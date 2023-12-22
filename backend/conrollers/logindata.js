@@ -1,7 +1,10 @@
 import loginStructureModel from "../models/logindata.js";
+import jwt from 'jsonwebtoken';
+
+
 export const createlogindata= async(req, res)=>{
     const {Name, Email,Password, Confirmpass }=req.body;
-
+    console.log(Email, Name);
      const newLogin = new loginStructureModel({
         Name,
         Email,
@@ -71,22 +74,33 @@ export const getlogin=async(req , res)=>{
         }
       };
 
+  
+
       export const getUserLogin = async (req, res) => {
         const { Email, Password } = req.body;
         console.log(Password);
         try {
-          const response = await loginStructureModel.findOne({Email});
+          const response = await loginStructureModel.findOne({ Email });
           console.log(response);
-          if(response.Password === Password) {
+          if (response && response.Password === Password) {
             const { Name, Email } = response;
+      
+            // Generate JWT token
+            const token = jwt.sign({ Email }, 'iamdaimahmadandiamwebdeveloper', { expiresIn: '1h' });
+            console.log(token);
 
-             res.json({ message: true, user: { Name, Email } });
-             
+            if(response.Email === 'admin@gmail.com' || response.Email === 'daimahmad58@gmail.com') {
+              const email = response.Email;
+              res.json({ message: true, email, token });  
+            } else {
+              res.json({ message: true, user: { Name, Email }, token });
+            }
           } else {
-            console.log('Can not find customer data');
+            console.log('Cannot find customer data');
+            res.json({ message: false, error: 'Invalid credentials' });
           }
         } catch (error) {
           console.log(error);
+          res.status(500).json({ message: false, error: 'Internal server error' });
         }
-      
       }

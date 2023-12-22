@@ -25,7 +25,6 @@ export const getProduct = async (req , res) =>{
     try{
         const productData = await MystiscentsModel.find();
         res.json(productData);
-        console.log(productData);
     }catch(error){
         console.log("Not found any data");
 }
@@ -73,7 +72,6 @@ export const updateProduct = async (req, res) => {
 
     try {
       const productCategory = await MystiscentsModel.find({category});
-      console.log(productCategory);
       res.json(productCategory);
     } catch (error) {
       console.log("Not found any data", error);

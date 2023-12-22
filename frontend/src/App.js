@@ -16,6 +16,7 @@ import Enter from './Components/entery';
 import Login from './Components/loginform';
 import Regestration from './Components/regestrationform';
 import Dashboard from './Components/dasboard';
+import PrivateRoutes from './Components/PrivateRoutes';
 
 
 
@@ -27,7 +28,9 @@ function App() {
    <Route path="/" element ={<Enter />}/>
     <Route path="/home" element={<Home />} />
     {/* <Route path="/admin" element={<Admin />} /> */}
-    <Route path='/dashboard'element={<Dashboard/>}/>
+    <Route element={<PrivateRoutes />}>
+      <Route path='/dashboard'element={<Dashboard/>}/>
+    </Route>
      <Route path='/product' element={<Product/>} />
      <Route path='/about' element={<About/>}/>
      <Route path='/Faqs'element={<Faqs/>}/>

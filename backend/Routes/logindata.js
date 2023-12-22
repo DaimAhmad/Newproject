@@ -1,19 +1,19 @@
-import express from "express";
-import { createlogindata, deletelogin, getUserLogin, getlogin, updatelogin } from "../conrollers/logindata.js";
+    import express from "express";
+    import { createlogindata, deletelogin, getUserLogin, getlogin, updatelogin } from "../conrollers/logindata.js";
 
 
 
-const router = express.Router();
+    const router = express.Router();
 
-router.post('/', createlogindata);
-router.get('/',getlogin);
+    router.post('/', createlogindata);
+    router.get('/',getlogin);
 
-router.delete("/:id",deletelogin);
+    router.delete("/:id",deletelogin);
 
-router.put("/:id", updatelogin);
-
-
+    router.put("/:id", updatelogin);
 
 
 
-export default router;
+
+
+    export default router;

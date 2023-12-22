@@ -2,6 +2,8 @@ import axios from "axios";
 
 const url = "https://mydata-vfj2.onrender.com";
 
+
+
 export const adddetails = async (formdata) => {
    return await axios.post(`${url}/Form/Addform`,formdata);
 }
@@ -17,7 +19,6 @@ export const deletproductById = async (productId) => {
  export const updateProduct = async (productId ,updatedProduct) => {
    return  await axios.put(`${url}/Form/Veiwform/${productId}`, updatedProduct);
  }
-
 // login form
  
 export const addLogindata = async (login) => {
@@ -37,6 +38,7 @@ export const addLogindata = async (login) => {
     return await axios.put(`${url}/Form/updateform/${id}`, updatedProduct);
  }
 
+ 
  export const login = async (details) =>{
   return await axios.post(`${url}/Login`,details );
  }

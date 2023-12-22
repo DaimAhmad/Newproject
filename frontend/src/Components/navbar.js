@@ -8,15 +8,23 @@ import Update from './Form/updateform';
 import React, { useContext, useState } from 'react';
 import { Context } from './Context';
 import img5 from '../Images/logo.png';
+import { useNavigate } from 'react-router-dom';
+import { googleLogout } from '@react-oauth/google';
 
 function Navigation() {
-  const { user, handleLogout } = useContext(Context);
+  const { handleLogout } = useContext(Context);
+  const user = localStorage.getItem('userEmail');
   const [showProfile, setShowProfile] = useState(false);
+  const navigation = useNavigate();
 
   const navbarStyle = {
     background: 'linear-gradient(160deg, #0093E9 0%, #80D0C7 100%)',
   };
 
+  const handleLogoutUser = () => {
+    handleLogout(user);
+    navigation('/home');
+  }
   const handleProfileClick = () => {
     setShowProfile(true);
   };
@@ -63,9 +71,9 @@ function Navigation() {
           <Modal.Title >User Profile</Modal.Title>
         </Modal.Header >
         <Modal.Body >
-          <p>Welcome : {user ? user.name : 'Guest'}!</p>
-          <p>{user ? user.email : 'Guest'}!</p>
-          <button onClick={handleLogout}>Logout</button>
+          {/* <p>Welcome : {user ? user.name : 'Guest'}!</p> */}
+          <p>{user ? user : 'Guest'}!</p>
+          {user ? <button onClick={handleLogoutUser}>Logout</button> : googleLogout()}
         </Modal.Body>
       </Modal>
     </>

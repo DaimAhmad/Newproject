@@ -4,7 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import '../Assessts/Login.css';
 import { Link } from 'react-router-dom';
 import { login } from '../Services/api';
-import { Context } from './Context'; // Import the context
+import { Context } from './Context'; 
+
 
 function Login() {
   const [details, setDetails] = useState({
@@ -22,22 +23,28 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     try {
       const response = await login(details);
-
-      if (response.data.message === true) {
+      const res = response.data;
+      if (res.message === true) {
         // Successful login, handle the response accordingly
         console.log('Login successful');
-
+        
         // Pass the user's information to the context
-        handleLogin({
-          name: response.data.user.Name, // You can pass other user information as needed
-          email: response.data.user.Email,
-        });
-
-        // Redirect to the home page or another page upon successful login
-        navigate('/home');
+        if(res.email) {
+          localStorage.setItem('token', res.token);
+          localStorage.setItem('adminEmail', res.email);
+          navigate('/Dashboard');
+        } else {
+          localStorage.setItem('token', res.token);
+          localStorage.setItem('userEmail', res.user.Email);
+          handleLogin({
+            name: response.data.user.Name,
+            email: response.data.user.Email,
+          });
+          navigate('/home');
+        }
       } else {
         alert('Invalid Email');
       }
@@ -85,6 +92,7 @@ function Login() {
             Sign up!
           </Link>
         </p>
+     
       </div>
     </div>
   );
