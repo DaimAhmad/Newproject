@@ -1,7 +1,7 @@
 import '../../Assessts/addform.css';
 import { adddetails } from '../../Services/api';
 import { useRef, useEffect, useState } from 'react';
-import Admin from '../admin';
+
 
 
 function Addform(){
