@@ -89,7 +89,7 @@ export const getlogin=async(req , res)=>{
             const token = jwt.sign({ Email }, 'iamdaimahmadandiamwebdeveloper', { expiresIn: '1h' });
             console.log(token);
 
-            if(response.Email === 'admin@gmail.com' || response.Email === 'daimahmad58@gmail.com') {
+            if(response.Email === 'admin@gmail.com') {
               const email = response.Email;
               res.json({ message: true, email, token });  
             } else {

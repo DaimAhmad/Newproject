@@ -78,12 +78,16 @@ const Dashboard = () => {
             Chat
           </a>
           <div className="profile-info">
-            <img
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            {/* <img
               src={profileimage} 
               alt="Profile"
               style={{ width: '60px', height: '60px', borderRadius: '50%', marginRight: '100px', marginTop:"120px" }}
-            />
-            <div className="profile-name">DAIM AHMAD</div>
+            /> */}
+            <div className="profile-name">SOMAN AHMAD</div>
             <div className="profile-email">{localStorage.getItem('adminEmail')}</div>
             <button onClick={handleLogoutAdmin}  style={{marginRight:"70px"}}>Log out</button>
           </div>
